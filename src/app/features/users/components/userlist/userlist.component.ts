@@ -12,7 +12,8 @@ interface User {
   styleUrls: ['./userlist.component.css'],
 })
 export class UserlistComponent implements OnInit {
-  @Input() name: string;
+  @Input() data: { name: string; bu: string };
+
   public usersInCompany$ = new BehaviorSubject([
     { name: 'Mike Smith', bu: 'Marketing' },
     { name: 'Lucy Marscilla', bu: 'Digital' },
@@ -23,6 +24,6 @@ export class UserlistComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.usersInCompany$.next([{ name: this.name, bu: 'Marketing' }]);
+    this.usersInCompany$.next([{ name: this.data.name, bu: this.data.bu }]);
   }
 }

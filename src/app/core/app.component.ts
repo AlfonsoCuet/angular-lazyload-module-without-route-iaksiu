@@ -18,6 +18,7 @@ import {
   ElementRef,
   ComponentRef,
 } from '@angular/core';
+import { CarComponent } from '../features/users/components/car/car.component';
 import { UserlistComponent } from '../features/users/components/userlist/userlist.component';
 import { UsersModule } from '../features/users/users.module';
 
@@ -45,19 +46,20 @@ export class AppComponent {
 
   onLoad() {
     this.loadComponent(UserlistComponent, {
-      name: 'Pedro',
+      data: { name: 'Pedro', bu: 'Analist' },
     });
+    this.loadComponent(CarComponent, { name: 'Ford' });
   }
   onUnload() {
     this.unloadComponent(UserlistComponent);
+    this.unloadComponent(CarComponent);
   }
 
   public loadComponent<T>(
     component: ComponentType<T>,
-    inputs: { [p: string]: string }
+    inputs: { [p: string]: any } = {}
   ) {
-    if(this.outlets.get(component))
-    {
+    if (this.outlets.get(component)) {
       console.warn('This compoent is already load.');
       return;
     }
