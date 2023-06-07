@@ -1,0 +1,8 @@
+<section class="userlist">
+  <h3>Users from Lazy loaded module...</h3>
+  <ul class="userlist__content">
+    <li *ngFor="let user of (usersInCompany$ | async)">
+      👉 <strong>{{user.name}}</strong> - {{user.bu}}
+    </li>
+  </ul>
+</section>
