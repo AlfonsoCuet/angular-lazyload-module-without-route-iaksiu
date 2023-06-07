@@ -3,20 +3,15 @@ import {
   ComponentType,
   DomPortalOutlet,
 } from '@angular/cdk/portal';
-import { NgTemplateOutlet } from '@angular/common';
 import {
   Component,
-  VERSION,
   ViewChild,
-  ViewContainerRef,
   Compiler,
   Injector,
   ChangeDetectorRef,
-  Type,
   ComponentFactoryResolver,
   ApplicationRef,
   ElementRef,
-  ComponentRef,
 } from '@angular/core';
 import { CarComponent } from '../features/users/components/car/car.component';
 import { UserlistComponent } from '../features/users/components/userlist/userlist.component';
@@ -33,11 +28,9 @@ export class AppComponent {
   outlets;
 
   constructor(
-    private compiler: Compiler,
-    private injector: Injector,
-    private cd: ChangeDetectorRef,
     private cfr: ComponentFactoryResolver,
-    private appRef: ApplicationRef
+    private appRef: ApplicationRef,
+    private injector: Injector
   ) {
     this.outlets = new Map();
   }
