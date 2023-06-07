@@ -56,6 +56,11 @@ export class AppComponent {
     component: ComponentType<T>,
     inputs: { [p: string]: string }
   ) {
+    if(this.outlets.get(component))
+    {
+      console.warn('This compoent is already load.');
+      return;
+    }
     const componentPortal = new ComponentPortal(component);
     const outlet = new DomPortalOutlet(
       this.container.nativeElement,
